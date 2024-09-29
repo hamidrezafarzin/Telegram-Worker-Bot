@@ -1,5 +1,5 @@
 
-# TelegramWorkerBot
+# Telegram-Worker-Bot
 
 A simple integration of Telegram Bot API with Cloudflare Workers. This project allows you to proxy requests to Telegram's API via a Cloudflare Worker and send messages or files (such as documents, photos, etc.) using a Python script.
 
@@ -21,7 +21,7 @@ A simple integration of Telegram Bot API with Cloudflare Workers. This project a
 
 ### 1. Clone the Repository:
 ```bash
-git clone https://github.com/hamidrezafarzin/TelegramWorkerBot.git
+git clone https://github.com/hamidrezafarzin/Telegram-Worker-Bot.git
 cd TelegramWorkerBot
 ```
 
