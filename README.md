@@ -21,7 +21,7 @@ A simple integration of Telegram Bot API with Cloudflare Workers. This project a
 
 ### 1. Clone the Repository:
 ```bash
-git clone https://github.com/your-username/TelegramWorkerBot.git
+git clone https://github.com/hamidrezafarzin/TelegramWorkerBot.git
 cd TelegramWorkerBot
 ```
 
