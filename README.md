@@ -22,7 +22,7 @@ A simple integration of Telegram Bot API with Cloudflare Workers. This project a
 ### 1. Clone the Repository:
 ```bash
 git clone https://github.com/hamidrezafarzin/Telegram-Worker-Bot.git
-cd TelegramWorkerBot
+cd Telegram-Worker-Bot
 ```
 
 ### 2. Set Up the Python Environment:
