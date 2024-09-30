@@ -1,40 +1,40 @@
 import requests
 
 class TelegramBot:
-    def __init__(self, worker_url, bot_token, chat_id):
+    def __init__(self, worker_url, bot_token):
         """
-        Initialize the TelegramBot class with worker URL, bot token, and chat ID.
+        Initialize the TelegramBot class with worker URL and bot token.
         :param worker_url: The Cloudflare worker URL (e.g. "https://<your-worker-id>.<your-domain>.workers.dev")
         :param bot_token: Your Telegram bot token (received from BotFather)
-        :param chat_id: The chat ID where you want to send the message/file
         """
         self.worker_url = worker_url.rstrip('/')  # Remove trailing slash if present
         self.bot_token = bot_token
-        self.chat_id = chat_id
 
-    def send_message(self, text):
+    def send_message(self, text, chat_id):
         """
         Send a text message to the chat.
         :param text: The text of the message to be sent
+        :param chat_id: The chat ID where you want to send the message
         :return: The response from the Telegram API
         """
         url = f"{self.worker_url}/proxy/bot{self.bot_token}/sendMessage"
         data = {
-            'chat_id': self.chat_id,
+            'chat_id': chat_id,
             'text': text
         }
         response = requests.post(url, data=data)
         return response.json()
 
-    def send_document(self, file_path=None, file_url=None):
+    def send_document(self, chat_id, file_path=None, file_url=None):
         """
         Send a document to the chat, either from a local file or via URL.
+        :param chat_id: The chat ID where you want to send the document
         :param file_path: The path to the file on your local system (optional)
         :param file_url: The URL of the file to send (optional)
         :return: The response from the Telegram API
         """
         url = f"{self.worker_url}/proxy/bot{self.bot_token}/sendDocument"
-        data = {'chat_id': self.chat_id}
+        data = {'chat_id': chat_id}
         
         if file_url:
             # Sending a file via URL
@@ -50,15 +50,16 @@ class TelegramBot:
         
         return response.json()
 
-    def send_photo(self, photo_path=None, photo_url=None):
+    def send_photo(self, chat_id, photo_path=None, photo_url=None):
         """
         Send a photo to the chat, either from a local file or via URL.
+        :param chat_id: The chat ID where you want to send the photo
         :param photo_path: The path to the photo on your local system (optional)
         :param photo_url: The URL of the photo to send (optional)
         :return: The response from the Telegram API
         """
         url = f"{self.worker_url}/proxy/bot{self.bot_token}/sendPhoto"
-        data = {'chat_id': self.chat_id}
+        data = {'chat_id': chat_id}
 
         if photo_url:
             # Sending a photo via URL
@@ -74,15 +75,16 @@ class TelegramBot:
         
         return response.json()
 
-    def send_audio(self, audio_path=None, audio_url=None):
+    def send_audio(self, chat_id, audio_path=None, audio_url=None):
         """
         Send an audio file to the chat, either from a local file or via URL.
+        :param chat_id: The chat ID where you want to send the audio
         :param audio_path: The path to the audio file on your local system (optional)
         :param audio_url: The URL of the audio file to send (optional)
         :return: The response from the Telegram API
         """
         url = f"{self.worker_url}/proxy/bot{self.bot_token}/sendAudio"
-        data = {'chat_id': self.chat_id}
+        data = {'chat_id': chat_id}
 
         if audio_url:
             # Sending an audio file via URL
@@ -98,15 +100,16 @@ class TelegramBot:
         
         return response.json()
 
-    def send_video(self, video_path=None, video_url=None):
+    def send_video(self, chat_id, video_path=None, video_url=None):
         """
         Send a video file to the chat, either from a local file or via URL.
+        :param chat_id: The chat ID where you want to send the video
         :param video_path: The path to the video file on your local system (optional)
         :param video_url: The URL of the video file to send (optional)
         :return: The response from the Telegram API
         """
         url = f"{self.worker_url}/proxy/bot{self.bot_token}/sendVideo"
-        data = {'chat_id': self.chat_id}
+        data = {'chat_id': chat_id}
 
         if video_url:
             # Sending a video file via URL
