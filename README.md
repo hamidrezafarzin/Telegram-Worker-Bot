@@ -73,10 +73,9 @@ from telegram_bot import TelegramBot
 bot = TelegramBot(
     worker_url="https://your-worker-id.your-domain.workers.dev",
     bot_token="123456789:ABCDEF123456789ghijklmnopqrst",
-    chat_id="987654321"  # Replace with your chat ID
 )
 
-response = bot.send_message("Hello, world!")
+response = bot.send_message("Hello, world!", chat_id="987654321")
 print(response)
 ```
 
@@ -85,11 +84,11 @@ You can send a document from your local file system or a URL using the `send_doc
 
 ```python
 # Send a document from a local file
-response = bot.send_document(file_path="path_to_file.pdf")
+response = bot.send_document(file_path="path_to_file.pdf", chat_id="987654321")
 print(response)
 
 # Send a document from a URL
-response = bot.send_document(file_url="https://example.com/path_to_file.pdf")
+response = bot.send_document(file_url="https://example.com/path_to_file.pdf", chat_id="987654321")
 print(response)
 ```
 
@@ -98,11 +97,11 @@ Send a photo using the `send_photo()` method:
 
 ```python
 # Send a photo from a local file
-response = bot.send_photo(photo_path="path_to_image.jpg")
+response = bot.send_photo(photo_path="path_to_image.jpg", chat_id="987654321")
 print(response)
 
 # Send a photo from a URL
-response = bot.send_photo(photo_url="https://example.com/path_to_image.jpg")
+response = bot.send_photo(photo_url="https://example.com/path_to_image.jpg", chat_id="987654321")
 print(response)
 ```
 
