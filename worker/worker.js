@@ -16,7 +16,7 @@ addEventListener('fetch', event => {
     }
   
     // For other paths, forward the request to the Telegram API
-    const apiUrl = url.pathname.replace('/proxy/', 'https://api.telegram.org/')
+    const apiUrl = url.pathname.includes('/proxy/') ? url.pathname.replace('/proxy/', 'https://api.telegram.org/') : `https://api.telegram.org${url.pathname}`;
     
     // Construct the forwarded request
     const init = {
